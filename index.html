@@ -1,37 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding RSVP</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            text-align: center;
-            padding: 50px;
-            background-image: url('floral-background.jpg');
-            background-size: cover;
-        }
-        .rsvp-button {
-            padding: 10px 20px;
-            background-color: #ff69b4;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        .rsvp-button:hover {
-            background-color: #ff1493;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Millie & Ezra</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@300;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #f4f4f4;
+      font-family: 'Cormorant Garamond', serif;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      font-size: 18px;
+      letter-spacing: 3px;
+    }
+
+    .menu {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+
+    /* Floral decoration */
+    .floral {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      margin: 20px 0;
+      letter-spacing: 4px;
+    }
+
+    .ampersand {
+      font-size: 48px;
+      margin: 10px 0;
+    }
+
+    .date {
+      margin-top: 60px;
+      font-size: 20px;
+      letter-spacing: 6px;
+    }
+
+    .rsvp-btn {
+      margin-top: 50px;
+      padding: 15px 40px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 4px;
+      font-size: 14px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .rsvp-btn:hover {
+      background: #333;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .ampersand {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>You're Invited to Millie and Ezra's Wedding!</h1>
-    <h2>Date: April 7, 2027</h2>
-    <p>Join us for a beautiful celebration filled with love and joy.</p>
-    <button class="rsvp-button">RSVP</button>
+
+  <header>
+    <div>Millie & Ezra</div>
+    <div class="menu">☰</div>
+  </header>
+
+  <section class="hero">
+
+    <!-- Replace this with your floral image -->
+    <img src="floral.png" class="floral" alt="Floral Decoration">
+
+    <h1>Millie</h1>
+    <div class="ampersand">&</div>
+    <h1>Ezra</h1>
+
+    <div class="date">APRIL 7, 2027</div>
+
+    <a href="#rsvp" class="rsvp-btn">RSVP</a>
+
+  </section>
+
 </body>
 </html>
