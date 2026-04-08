@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
+  background: #f7f7f7;
+  color: #111;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.btn-nav {
+  background: black;
+  color: white;
+  padding: 6px 12px;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  letter-spacing: 4px;
+  margin: 5px 0;
+}
+
+.amp {
+  font-size: 24px;
+}
+
+.date {
+  margin-top: 20px;
+  letter-spacing: 3px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  background: black;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 4px;
+}
+
+h3 {
+  margin-top: 50px;
+  letter-spacing: 3px;
+}
+
+.center-text {
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.8;
+}
+
+/* PARTY */
+.party {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 40px;
+}
+
+.person img {
+  border-radius: 50%;
+}
+
+.role {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* RSVP */
+.rsvp form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.rsvp input {
+  margin: 10px 0;
+  padding: 10px;
+  font-family: inherit;
+}
+
+.radio-group {
+  margin: 10px 0;
+}
+
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
