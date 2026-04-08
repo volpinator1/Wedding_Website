@@ -21,8 +21,7 @@ Built for my own use and hosting.
 ## Setup (for future me)
 
 * Update content in `index.html`
-* Replace images if needed
-* Make sure RSVP form endpoint is correct
+* Replace images or RSVP form endpoint
 * Push changes → GitHub Pages will update the site
 
 ## That's it
