@@ -2,114 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Millie & Ezra</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@300;500&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      background-color: #f4f4f4;
-      font-family: 'Cormorant Garamond', serif;
-      color: #111;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 40px;
-      font-size: 18px;
-      letter-spacing: 3px;
-    }
-
-    .menu {
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 120px 20px 80px;
-      position: relative;
-    }
-
-    /* Floral decoration */
-    .floral {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0.8;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 64px;
-      margin: 20px 0;
-      letter-spacing: 4px;
-    }
-
-    .ampersand {
-      font-size: 48px;
-      margin: 10px 0;
-    }
-
-    .date {
-      margin-top: 60px;
-      font-size: 20px;
-      letter-spacing: 6px;
-    }
-
-    .rsvp-btn {
-      margin-top: 50px;
-      padding: 15px 40px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      letter-spacing: 4px;
-      font-size: 14px;
-      display: inline-block;
-      transition: 0.3s;
-    }
-
-    .rsvp-btn:hover {
-      background: #333;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 42px;
-      }
-
-      .ampersand {
-        font-size: 32px;
-      }
-    }
-  </style>
+  <title>Isabelle & Evan</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <header>
-    <div>Millie & Ezra</div>
-    <div class="menu">☰</div>
-  </header>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Isabelle & Evan</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#story">Our Story</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#rsvp" class="btn-nav">RSVP</a>
+  </nav>
+</header>
 
-  <section class="hero">
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Isabelle</h1>
+  <span class="amp">&</span>
+  <h1>Evan</h1>
+  <p class="date">April 7, 2027</p>
+  <a href="#rsvp" class="btn">RSVP</a>
+</section>
 
-    <!-- Replace this with your floral image -->
-    <img src="floral.png" class="floral" alt="Floral Decoration">
+<!-- STORY -->
+<section id="story" class="section">
+  <h2>Our Story</h2>
+  <p class="center-text">
+    Welcome to our wedding website! We've created this site as a convenient
+    and interactive way to share all of the important details with you.
+    We can't wait to celebrate this exciting new chapter with you.
+  </p>
 
-    <h1>Millie</h1>
-    <div class="ampersand">&</div>
-    <h1>Ezra</h1>
+  <h3>How We Met</h3>
+  <p class="center-text">
+    This is where your story goes. Keep it heartfelt, personal, and simple.
+  </p>
+</section>
 
-    <div class="date">APRIL 7, 2027</div>
+<!-- SCHEDULE -->
+<section id="schedule" class="section">
+  <h2>Schedule</h2>
+  <p class="center-text">Details coming soon.</p>
+</section>
 
-    <a href="#rsvp" class="rsvp-btn">RSVP</a>
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <h2>Gallery</h2>
+  <p class="center-text">Photos coming soon.</p>
+</section>
 
-  </section>
+<!-- WEDDING PARTY -->
+<section class="section">
+  <h2>Wedding Party</h2>
 
+  <div class="party">
+    <div class="person">
+      <img src="https://via.placeholder.com/150" alt="">
+      <p class="role">Maid of Honor</p>
+      <h4>Random Girl</h4>
+    </div>
+
+    <div class="person">
+      <img src="https://via.placeholder.com/150" alt="">
+      <p class="role">Best Man</p>
+      <h4>Mateo Volpini</h4>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp" class="section rsvp">
+  <h2>RSVP Now</h2>
+
+  <form id="rsvpForm">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="text" placeholder="Passkey Code" required>
+    <input type="number" placeholder="Number in Party" min="1" required>
+
+    <div class="radio-group">
+      <label><input type="radio" name="attending" value="yes"> Accept</label>
+      <label><input type="radio" name="attending" value="no"> Decline</label>
+    </div>
+
+    <button type="submit" class="btn">Continue</button>
+  </form>
+
+  <p id="formMessage"></p>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
