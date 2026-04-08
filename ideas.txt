@@ -1,0 +1,40 @@
+April 8th:
+
+
+
+If you want to ensure the invitee only invites at most the number you gave them in the email invite, then assign different passkeys depending on size of group
+
+ex: if 2 people in party, then email them passkey IEWEDDING2, if 5 people in party then email them passkey IEWEDDING5
+
+Store these passkey's in the backend so they are retrievable upon a user input.
+
+
+
+
+
+
+RSVP confirmation or ERROR popup:
+
+If someone fills out all valid info. 
+
+  ANY name
+  ANY email
+  VALID Passkey
+  VALID # of attendees
+  SELECT accept or decline
+
+pressed continue
+then popup will show saying either, "thank you for reserving X spots, we're eager to see you there" or "we understand you can't attend..."
+
+
+if someone fill out incorrectly with ANYOF the following:
+
+  Missing name
+  Missing email
+  Invalid Passkey
+  > # of attendees
+  didn't select accept or decline
+
+pressed continue, then it should highlight the default text in the textboxes red. for > # of attendees highlight it in red. for empty accept/decline highlight both circles in red. 
+
+  
