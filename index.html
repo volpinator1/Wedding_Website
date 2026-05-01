@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">Isabelle & Evan</div>
@@ -37,7 +36,6 @@
     and interactive way to share all of the important details with you.
     We can't wait to celebrate this exciting new chapter with you.
   </p>
-
   <h3>How We Met</h3>
   <p class="center-text">
     This is where your story goes. Keep it heartfelt, personal, and simple.
@@ -54,7 +52,9 @@
 <section id="gallery" class="section">
   <h2>Gallery</h2>
   <div class="gallery-grid">
-    <img src="https://static.wikia.nocookie.net/familyguy/images/d/dc/Just_married.jpg/revision/latest?cb=20100316185216" alt="Wedding moment">
+    <!-- Fixed image: reliable Unsplash wedding photo -->
+    <img src="https://picsum.photos/id/1015/800/600" 
+         alt="Just Married - Isabelle & Evan">
   </div>
   <p class="center-text">Photos coming soon.</p>
 </section>
@@ -62,14 +62,12 @@
 <!-- WEDDING PARTY -->
 <section class="section">
   <h2>Wedding Party</h2>
-
   <div class="party">
     <div class="person">
       <img src="https://via.placeholder.com/150" alt="">
       <p class="role">Maid of Honor</p>
       <h4>Random Girl</h4>
     </div>
-
     <div class="person">
       <img src="https://via.placeholder.com/150" alt="">
       <p class="role">Best Man</p>
@@ -81,21 +79,17 @@
 <!-- RSVP -->
 <section id="rsvp" class="section rsvp">
   <h2>RSVP Now</h2>
-
   <form id="rsvpForm">
     <input type="text" placeholder="Full Name" required>
     <input type="email" placeholder="Email" required>
     <input type="text" placeholder="Passkey Code" required>
     <input type="number" placeholder="Number in Party" min="1" required>
-
     <div class="radio-group">
       <label><input type="radio" name="attending" value="yes"> Accept</label>
       <label><input type="radio" name="attending" value="no"> Decline</label>
     </div>
-
     <button type="submit" class="btn">Continue</button>
   </form>
-
   <p id="formMessage"></p>
 </section>
 
