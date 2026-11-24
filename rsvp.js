@@ -2,7 +2,7 @@
 // Make sure script.js no longer contains its own #rsvpForm handler.
 
 // Paste your Apps Script Web app URL here (ends in /exec).
-var RSVP_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+var RSVP_URL = "https://script.google.com/macros/s/AKfycbwx7909rsrtobkwwHIMqqG1oMMsPX_MVYr1dtxZqEMSDieSFAXwbmJVNDTcEhf5MWgyYw/exec";
 
 var form = document.getElementById("rsvpForm");
 var status = document.getElementById("formMessage");
