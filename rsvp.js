@@ -1,8 +1,10 @@
-// RSVP form: validation, red highlighting, and confirmation popup.
+// RSVP form: validation, attendee name boxes, red highlighting, and confirmation popup.
 // Make sure script.js no longer contains its own #rsvpForm handler.
 
 // Paste your Apps Script Web app URL here (ends in /exec).
 var RSVP_URL = "https://script.google.com/macros/s/AKfycbwx7909rsrtobkwwHIMqqG1oMMsPX_MVYr1dtxZqEMSDieSFAXwbmJVNDTcEhf5MWgyYw/exec";
+
+var MAX_GUESTS = 10;
 
 var form = document.getElementById("rsvpForm");
 var status = document.getElementById("formMessage");
@@ -10,6 +12,8 @@ var popup = document.getElementById("popup");
 var popupTitle = document.getElementById("popupTitle");
 var popupText = document.getElementById("popupText");
 var popupClose = document.getElementById("popupClose");
+var namesBox = document.getElementById("namesBox");
+var namesFields = document.getElementById("namesFields");
 
 // ----- popup -----
 function showPopup(title, text) {
@@ -24,21 +28,75 @@ popupClose.addEventListener("click", hidePopup);
 popup.addEventListener("click", function (e) { if (e.target === popup) hidePopup(); });
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") hidePopup(); });
 
-// ----- error highlighting -----
-function targetFor(field) {
-  return field === "attending"
-    ? form.querySelector(".radio-group")
-    : form.elements[field];
+// ----- attendee name boxes -----
+function selectedAttending() {
+  var picked = form.querySelector('input[name="attending"]:checked');
+  return picked ? picked.value : "";
 }
+
+function nameInputs() {
+  return Array.prototype.slice.call(namesFields.querySelectorAll("input"));
+}
+
+// Shows one first-name box per person in the party, keeping anything already typed.
+function syncNames() {
+  var n = parseInt(form.elements.guests.value, 10);
+  if (selectedAttending() === "No" || !(n >= 1)) {
+    namesBox.hidden = true;
+    return;
+  }
+  n = Math.min(n, MAX_GUESTS);
+
+  while (namesFields.children.length < n) {
+    var input = document.createElement("input");
+    input.type = "text";
+    input.name = "attendee";
+    input.maxLength = 40;
+    input.autocomplete = "off";
+    input.addEventListener("input", function () { this.classList.remove("error"); });
+    namesFields.appendChild(input);
+  }
+  while (namesFields.children.length > n) {
+    namesFields.removeChild(namesFields.lastChild);
+  }
+  nameInputs().forEach(function (input, i) {
+    input.placeholder = "First name of guest " + (i + 1);
+  });
+  namesBox.hidden = false;
+}
+
+function resetNames() {
+  namesFields.innerHTML = "";
+  namesBox.hidden = true;
+}
+
+form.elements.guests.addEventListener("input", syncNames);
+form.querySelectorAll('input[name="attending"]').forEach(function (r) {
+  r.addEventListener("change", syncNames);
+});
+
+// ----- error highlighting -----
 function clearErrors() {
   form.querySelectorAll(".error").forEach(function (el) { el.classList.remove("error"); });
 }
+
+// Highlights the blank name boxes (or all of them if none is blank).
+function flagNames() {
+  var inputs = nameInputs();
+  var blanks = inputs.filter(function (i) { return !i.value.trim(); });
+  (blanks.length ? blanks : inputs).forEach(function (i) { i.classList.add("error"); });
+}
+
 function flag(fields) {
   fields.forEach(function (f) {
-    var el = targetFor(f);
+    if (f === "attendees") { flagNames(); return; }
+    var el = f === "attending"
+      ? form.querySelector(".radio-group")
+      : form.elements[f];
     if (el) el.classList.add("error");
   });
 }
+
 // Clear a field's red state as soon as the person edits it.
 ["name", "email", "passkey", "guests"].forEach(function (f) {
   form.elements[f].addEventListener("input", function () { this.classList.remove("error"); });
@@ -55,8 +113,7 @@ form.addEventListener("submit", function (e) {
   clearErrors();
   status.textContent = "";
 
-  var picked = form.querySelector('input[name="attending"]:checked');
-  var attending = picked ? picked.value : "";
+  var attending = selectedAttending();
   var guests = parseInt(form.elements.guests.value, 10);
 
   // Quick checks for missing info (the server re-checks everything, including the passkey).
@@ -66,6 +123,11 @@ form.addEventListener("submit", function (e) {
   if (!form.elements.passkey.value.trim()) bad.push("passkey");
   if (!attending) bad.push("attending");
   if (attending !== "No" && !(guests >= 1)) bad.push("guests");
+  if (attending === "Yes" && guests >= 1) {
+    syncNames();
+    var anyBlank = nameInputs().some(function (i) { return !i.value.trim(); });
+    if (anyBlank) bad.push("attendees");
+  }
   if (bad.length) { flag(bad); return; }
 
   var button = form.querySelector("button[type='submit']");
@@ -83,15 +145,17 @@ form.addEventListener("submit", function (e) {
           showPopup(
             "RSVP received",
             "Thank you for reserving " + n + (n === 1 ? " spot" : " spots") +
-            ", we're eager to see you there!"
+            ", we're eager to see you there! A confirmation email is on its way."
           );
         } else {
           showPopup(
             "RSVP received",
-            "We understand you can't attend. You'll be missed, and thank you for letting us know."
+            "We understand you can't attend. You'll be missed, and thank you for letting us know. " +
+            "A confirmation email is on its way."
           );
         }
         form.reset();
+        resetNames();
       } else if (data.fields && data.fields.length) {
         flag(data.fields);
       } else {
