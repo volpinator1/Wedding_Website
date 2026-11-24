@@ -85,6 +85,10 @@
     <input type="email" name="email" placeholder="Email" required autocomplete="email">
     <input type="text" name="passkey" placeholder="Passkey Code" required autocomplete="off">
     <input type="number" name="guests" placeholder="Number in Party" min="1" max="10">
+    <div id="namesBox" class="names-box" hidden>
+      <p class="names-title">Who's attending? Please list everyone's first name, including yours.</p>
+      <div id="namesFields"></div>
+    </div>
     <div class="radio-group">
       <label><input type="radio" name="attending" value="Yes"> Accept</label>
       <label><input type="radio" name="attending" value="No"> Decline</label>
