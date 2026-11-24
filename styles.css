@@ -149,3 +149,60 @@ html {
   object-fit: cover;
   border-radius: 10px;
 }
+/* ===== ADDITIONS 2: paste at the bottom of styles.css (after the first additions) ===== */
+
+/* Red highlighting for invalid fields (text, placeholder, and border) */
+.rsvp input.error {
+  border: 2px solid #c62828;
+  color: #c62828;
+}
+.rsvp input.error::placeholder {
+  color: #c62828;
+  opacity: 1;
+}
+
+/* Both Accept and Decline circles turn red when neither is chosen */
+.radio-group.error label {
+  color: #c62828;
+}
+.radio-group.error input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #c62828;
+  border-radius: 50%;
+  background: #fff;
+  vertical-align: middle;
+}
+
+/* Confirmation / error popup */
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.popup[hidden] {
+  display: none;
+}
+.popup-box {
+  background: #fff;
+  max-width: 420px;
+  width: 100%;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+.popup-box h3 {
+  margin: 0 0 12px;
+  font-family: 'Playfair Display', serif;
+}
+.popup-box p {
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
