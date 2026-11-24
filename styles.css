@@ -206,3 +206,23 @@ html {
   line-height: 1.7;
   margin: 0 0 8px;
 }
+/* ===== ADDITIONS 3: paste at the bottom of styles.css (after additions 1 and 2) ===== */
+
+/* "Who's attending?" first-name boxes (inputs inherit the other RSVP input styles) */
+.names-box {
+  margin: 10px 0 0;
+  text-align: left;
+}
+.names-box[hidden] {
+  display: none;
+}
+.names-title {
+  margin: 10px 0 0;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+#namesFields {
+  display: flex;
+  flex-direction: column;
+}
